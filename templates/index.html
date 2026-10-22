@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>FinSight · Financial Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navigation">
+      <a class="brand" href="/" aria-label="FinSight home"><span class="brand-mark">F</span><span>finsight<span class="brand-dot">.</span></span></a>
+      <button class="new-chat" id="new-chat"><span>＋</span> New analysis</button>
+      <section class="side-section">
+        <div class="section-heading"><h2>Watchlist</h2><span class="section-count" id="watch-count">0</span></div>
+        <ul class="watchlist" id="watchlist" aria-label="Watchlist"></ul>
+        <p class="side-empty" id="watch-empty">Add a company from an insight card to track it here.</p>
+      </section>
+      <section class="side-section history-section">
+        <div class="section-heading"><h2>Recent chats</h2><button class="icon-button" id="clear-history" title="Clear chat history" aria-label="Clear chat history">···</button></div>
+        <ul class="history-list" id="chat-history" aria-label="Chat history"></ul>
+        <p class="side-empty" id="history-empty">Your conversations will appear here.</p>
+      </section>
+      <div class="sidebar-footer"><div class="avatar small-avatar">FS</div><div><strong>Financial analyst</strong><span>Market insights workspace</span></div><span class="footer-dots">···</span></div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">F</span> finsight<span class="brand-dot">.</span></div>
+        <div class="workspace-label"><span class="status-dot"></span> Equity research <span class="chevron">⌄</span></div>
+        <button class="profile-button" aria-label="Profile"><span>U</span></button>
+      </header>
+      <section class="conversation" id="conversation">
+        <div class="chat-box" id="chat-box" aria-live="polite">
+          <div class="welcome" id="welcome">
+            <div class="welcome-icon"><span>✳</span></div>
+            <p class="eyebrow">YOUR PERSONAL FINANCIAL ANALYST</p>
+            <h1>Good research starts<br>with a <span>good question.</span></h1>
+            <p class="welcome-copy">Ask about any company, ticker, or finance topic. These prompts are just examples.</p>
+            <div class="prompt-grid">
+              <button class="prompt-card" data-prompt="Analyze the latest earnings for a company"><span class="prompt-icon violet">↗</span><span><strong>Earnings overview</strong><small>Revenue, sentiment and key risks</small></span><span class="prompt-arrow">↗</span></button>
+              <button class="prompt-card" data-prompt="What are the key risks for a company?"><span class="prompt-icon amber">◈</span><span><strong>Explore risk factors</strong><small>Understand what could move a stock</small></span><span class="prompt-arrow">↗</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="composer-wrap">
+        <form class="input-bar" id="message-form">
+          <textarea id="message-input" rows="1" placeholder="Search any company or ticker symbol, or ask about earnings and risks…" aria-label="Your question"></textarea>
+          <div class="composer-bottom"><span class="composer-hint"><span class="sparkle">✳</span> Insights grounded in market data</span><button type="submit" id="send-button"><span>Analyze</span><span class="send-arrow">↑</span></button></div>
+        </form>
+        <p class="disclaimer">For informational purposes only. Not investment advice.</p>
+      </footer>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
